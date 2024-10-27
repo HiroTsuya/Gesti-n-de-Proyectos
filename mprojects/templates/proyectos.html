@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>Proyectos</h1>
+{% for proyecto in proyectos %}
+<div class="card">
+    <h2 class="title2">{{proyecto.nombreProyecto}}</h2>
+    <form method="post" action="{% url 'eliminar_proyecto' proyecto.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </form>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>Tareas</h1>
+{% for tarea in tareas %}
+<div class="card">
+    <h2 class="title2">{{tarea.tituloTarea}}</h2>
+    <p>{{tarea.descripcion}}</p>
+    <p>Proyecto: {{tarea.proyecto.nombreProyecto}}</p>
+    <p>Equipo: {{tarea.equipoTrabajo.nombreEquipo}}</p>
+    <p>Responsable: {{tarea.responsable.nombreUsuario}}</p>
+    <p>Ejecutor: {{tarea.ejecutor.nombreUsuario}}</p>
+    <p>Fecha Inicio: {{tarea.fechaInicio}}</p>
+    <p>Hora inicio Tarea: {{tarea.tiempoDuracionInicio}}</p>
+    <p>Fecha Fin: {{tarea.fechaFin}}</p>
+    <p>Hora fin Tarea: {{tarea.tiempoDuracionFin}}</p>
+    <form method="post" action="{% url 'eliminar_tarea' tarea.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </form>
+</div>
+{% endfor %}
+{% endblock %}

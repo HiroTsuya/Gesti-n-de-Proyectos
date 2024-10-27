@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/styles/estilos.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a href="{% url 'index' %}">Inicio</a>
+            </li>
+            <li>
+                <a href="{% url 'proyectos' %}">Proyectos</a>
+            </li>
+            <li>
+                <a href="{% url 'crear_proyecto' %}">Crear Proyectos</a>
+            </li>
+            <li>
+                <a href="{% url 'tareas' %}">Tareas</a>
+            </li>
+            <li>
+                <a href="{% url 'crear_tarea' %}">Crear Tareas</a>
+            </li>
+            <li>
+                <a href="{% url 'equipos' %}">Equipos</a>
+            </li>
+            <li>
+                <a href="{% url 'crear_equipo' %}">Crear Equipo</a>
+            </li>
+            <li>
+                <a href="{% url 'usuarios' %}">Usuarios</a>
+            </li>
+            <li>
+                <a href="{% url 'crear_usuario' %}">Crear Usuario</a>
+            </li>
+        </ul>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

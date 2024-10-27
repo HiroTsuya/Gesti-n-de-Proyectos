@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>Equipos</h1>
+{% for equipo in equipos %}
+<div class="card">
+    <h2 class="title2">{{equipo.nombreEquipo}}</h2>
+    <p>Proyectos:</p>
+    <ul>
+        {% for tarea in equipo.tareas.all %}
+            <li>{{ tarea.proyecto.nombreProyecto }}</li>
+        {% empty %}
+            <li>No hay proyectos asociados.</li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="{% url 'eliminar_equipo' equipo.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </form>
+</div>
+{% endfor %}
+{% endblock %}
